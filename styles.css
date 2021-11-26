@@ -1,0 +1,36 @@
+:root {
+    --hamburger-color: hsl(23, 100%, 50%);
+    --menu-bar-width: 60px;
+    --menu-bar-height: 10px;
+}
+
+#menu {
+    background-color: var(--hamburger-color);
+    position: relative;
+    width: var(--menu-bar-width);
+    height: var(--menu-bar-height);
+    margin: 100px;
+}
+
+#menu::before,
+#menu::after {
+    background-color: var(--hamburger-color);
+    display: block;
+    content: "";
+    width: var(--menu-bar-width);
+    height: var(--menu-bar-height);
+    position: absolute;
+}
+
+#menu::before {
+    left: 0;
+    top: -20px;
+}
+
+#menu::after {
+    left: 0;
+    top: 20px;
+}
+
+
+
