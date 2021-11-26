@@ -1,36 +1,58 @@
 :root {
-    --hamburger-color: hsl(23, 100%, 50%);
-    --menu-bar-width: 60px;
-    --menu-bar-height: 10px;
+    --menu-width: 60px;
+    --menu-height: 10px;
+    --menu-bg-color: hsl(6.13, 73.23%, 49.8%);
 }
 
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 0;
+    width: calc(var(--menu-width) + 10px);
+    /*border: 3px solid orange;*/
+}
+
+
 #menu {
-    background-color: var(--hamburger-color);
+    background-color: var(--menu-bg-color);
+    width: var(--menu-width);
+    height: var(--menu-height);
     position: relative;
-    width: var(--menu-bar-width);
-    height: var(--menu-bar-height);
-    margin: 100px;
+    transition: all 0.15s ease-in-out;
 }
 
 #menu::before,
 #menu::after {
-    background-color: var(--hamburger-color);
     display: block;
     content: "";
-    width: var(--menu-bar-width);
-    height: var(--menu-bar-height);
+    background-color: var(--menu-bg-color);
+    width: var(--menu-width);
+    height: var(--menu-height);
     position: absolute;
+    left: 0;
+    transition: all 0.35s ease-in-out;
 }
 
 #menu::before {
-    left: 0;
     top: -20px;
 }
 
 #menu::after {
-    left: 0;
-    top: 20px;
+    bottom: -20px;
 }
 
+#container:hover #menu {
+    background-color: transparent;
+}
 
+#container:hover #menu::before {
+    transform: rotate(45deg);
+    top: 0;
+}
 
+#container:hover #menu::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
